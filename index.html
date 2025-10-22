@@ -296,59 +296,233 @@
         }
 
         /* ===========================
-           Dual Target Sections
+           Browse Retreats Section
            =========================== */
-        .seekers-section {
+        .retreats-section {
             background-color: var(--white);
         }
 
-        .providers-section {
-            background-color: var(--background-light);
+        .search-filter-bar {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
         }
 
-        .target-content {
+        .search-input {
+            flex: 1;
+            min-width: 250px;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            border: 2px solid var(--border-gray);
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-indigo);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .filter-select {
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            border: 2px solid var(--border-gray);
+            border-radius: 0.5rem;
+            background-color: var(--white);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: var(--primary-indigo);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .retreats-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
         }
 
-        .target-image {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
+        .retreat-card {
+            background-color: var(--white);
             border-radius: 1rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            transition: all 0.3s ease;
+            border: 1px solid var(--border-gray);
         }
 
-        .target-text h2 {
-            color: var(--primary-indigo);
-            margin-bottom: 1.5rem;
+        .retreat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
         }
 
-        .target-text p {
-            margin-bottom: 2rem;
+        .retreat-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
         }
 
-        .feature-list {
-            list-style: none;
-            margin-bottom: 2rem;
+        .retreat-content {
+            padding: 1.5rem;
         }
 
-        .feature-list li {
-            padding: 0.75rem 0;
+        .retreat-type {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background-color: var(--primary-indigo);
+            color: var(--white);
+            border-radius: 1rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+        }
+
+        .retreat-card h3 {
+            font-size: 1.5rem;
+            color: var(--text-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .retreat-location {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 0.75rem;
             display: flex;
             align-items: center;
-            color: var(--text-gray);
+            gap: 0.5rem;
+        }
+
+        .retreat-rating {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .stars {
+            color: #fbbf24;
             font-size: 1.125rem;
         }
 
-        .feature-list li::before {
-            content: "✓";
-            color: var(--success-green);
-            font-weight: 700;
+        .rating-text {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+        }
+
+        .retreat-description {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .retreat-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-gray);
+        }
+
+        .retreat-duration {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .retreat-price {
             font-size: 1.5rem;
-            margin-right: 1rem;
+            font-weight: 700;
+            color: var(--primary-indigo);
+        }
+
+        .retreat-price span {
+            font-size: 0.875rem;
+            font-weight: 400;
+            color: var(--text-gray);
+        }
+
+        .retreat-footer {
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        .btn-book {
+            width: 100%;
+            padding: 0.875rem;
+            font-size: 1rem;
+        }
+
+        /* ===========================
+           Reviews Section
+           =========================== */
+        .reviews-section {
+            background-color: var(--background-light);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .review-card {
+            background-color: var(--white);
+            padding: 2rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            transition: all 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .reviewer-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-indigo), var(--primary-indigo-light));
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .reviewer-info h4 {
+            color: var(--text-dark);
+            font-size: 1.125rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .review-retreat-name {
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .review-rating {
+            margin-bottom: 1rem;
+        }
+
+        .review-text {
+            color: var(--text-gray);
+            font-size: 1rem;
+            line-height: 1.7;
+            font-style: italic;
         }
 
         /* ===========================
@@ -580,13 +754,17 @@
                 display: block;
             }
 
-            .target-content {
-                grid-template-columns: 1fr;
-                gap: 2rem;
+            .search-filter-bar {
+                flex-direction: column;
             }
 
-            .target-image {
-                height: 300px;
+            .search-input,
+            .filter-select {
+                width: 100%;
+            }
+
+            .retreats-grid {
+                grid-template-columns: 1fr;
             }
 
             .signup-form {
@@ -608,7 +786,8 @@
             }
 
             .feature-grid,
-            .benefits-grid {
+            .benefits-grid,
+            .reviews-grid {
                 grid-template-columns: 1fr;
             }
         }
@@ -646,9 +825,9 @@
                 </button>
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="#home">Home</a></li>
-                    <li><a href="#seekers">For Seekers</a></li>
-                    <li><a href="#providers">For Providers</a></li>
+                    <li><a href="#retreats">Browse Retreats</a></li>
                     <li><a href="#benefits">Benefits</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
                     <li><a href="#community">Community</a></li>
                 </ul>
             </nav>
@@ -663,56 +842,44 @@
             <h1>Find Your Perfect Retreat</h1>
             <p class="hero-subtitle">Transform Your Life, One Retreat at a Time</p>
             <div class="hero-cta">
-                <a href="#" class="btn btn-primary">Browse Retreats</a>
-                <a href="#" class="btn btn-secondary">List Your Retreat</a>
+                <a href="#retreats" class="btn btn-primary">Browse Retreats</a>
             </div>
         </div>
     </section>
 
     <!-- ===========================
-         For Retreat Seekers Section
+         Browse Retreats Section
          =========================== -->
-    <section class="seekers-section" id="seekers">
+    <section class="retreats-section" id="retreats">
         <div class="container">
-            <div class="target-content">
-                <div class="target-text">
-                    <h2>For Retreat Seekers</h2>
-                    <p>Discover life-changing retreats tailored to your needs. Whether you're seeking wellness, personal growth, or simply a break from everyday life, we make it easy to find and book your perfect retreat experience.</p>
-                    <ul class="feature-list">
-                        <li>Search & Compare hundreds of verified retreats</li>
-                        <li>Read Verified Reviews from real participants</li>
-                        <li>Book Securely with our trusted payment system</li>
-                        <li>Filter by location, style, and price</li>
-                    </ul>
-                    <a href="#" class="btn btn-indigo">Start Exploring</a>
-                </div>
-                <div>
-                    <img src="https://picsum.photos/seed/yoga-seeker/800/600" alt="Person meditating during a peaceful retreat" class="target-image">
-                </div>
+            <div class="section-header">
+                <h2>Discover Your Next Retreat</h2>
+                <p>Explore handpicked retreats from around the world. Find the perfect experience for your wellness journey.</p>
             </div>
-        </div>
-    </section>
 
-    <!-- ===========================
-         For Retreat Providers Section
-         =========================== -->
-    <section class="providers-section" id="providers">
-        <div class="container">
-            <div class="target-content">
-                <div>
-                    <img src="https://picsum.photos/seed/retreat-provider/800/600" alt="Beautiful retreat venue with serene surroundings" class="target-image">
-                </div>
-                <div class="target-text">
-                    <h2>For Retreat Providers</h2>
-                    <p>Grow your retreat business by connecting with a targeted audience of retreat seekers. Our platform makes it simple to showcase your offerings and manage bookings efficiently.</p>
-                    <ul class="feature-list">
-                        <li>Reach a Targeted Audience actively searching for retreats</li>
-                        <li>Easy Booking Management with intuitive tools</li>
-                        <li>Grow Your Business with increased visibility</li>
-                        <li>No upfront fees - only pay when you book</li>
-                    </ul>
-                    <a href="#" class="btn btn-indigo">List Your Retreat</a>
-                </div>
+            <!-- Search and Filter Bar -->
+            <div class="search-filter-bar">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search retreats...">
+                <select id="typeFilter" class="filter-select">
+                    <option value="all">All Types</option>
+                    <option value="yoga">Yoga</option>
+                    <option value="meditation">Meditation</option>
+                    <option value="wellness">Wellness</option>
+                    <option value="mindfulness">Mindfulness</option>
+                </select>
+                <select id="locationFilter" class="filter-select">
+                    <option value="all">All Locations</option>
+                    <option value="bali">Bali, Indonesia</option>
+                    <option value="costa-rica">Costa Rica</option>
+                    <option value="thailand">Thailand</option>
+                    <option value="italy">Italy</option>
+                    <option value="india">India</option>
+                </select>
+            </div>
+
+            <!-- Retreat Cards Grid -->
+            <div class="retreats-grid" id="retreatsGrid">
+                <!-- Retreat cards will be dynamically inserted here by JavaScript -->
             </div>
         </div>
     </section>
@@ -746,6 +913,103 @@
                     <div class="benefit-icon">📵</div>
                     <h3>Digital Detox</h3>
                     <p>Unplug from technology and reconnect with nature, finding peace and clarity in the present moment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         Reviews Section
+         =========================== -->
+    <section class="reviews-section" id="reviews">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Community Says</h2>
+                <p>Real experiences from retreat participants around the world</p>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">SJ</div>
+                        <div class="reviewer-info">
+                            <h4>Sarah Johnson</h4>
+                            <p class="review-retreat-name">Bali Yoga & Meditation Retreat</p>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <span class="stars">★★★★★</span>
+                    </div>
+                    <p class="review-text">"This retreat completely transformed my life. The peaceful setting, experienced instructors, and like-minded community created the perfect environment for deep healing and growth. I left feeling refreshed and reconnected to myself."</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">MC</div>
+                        <div class="reviewer-info">
+                            <h4>Michael Chen</h4>
+                            <p class="review-retreat-name">Thai Mindfulness Sanctuary</p>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <span class="stars">★★★★★</span>
+                    </div>
+                    <p class="review-text">"Absolutely incredible experience. The combination of meditation, healthy food, and the stunning natural surroundings helped me find the peace I had been searching for. The facilitators were knowledgeable and genuinely caring."</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">EP</div>
+                        <div class="reviewer-info">
+                            <h4>Emma Patel</h4>
+                            <p class="review-retreat-name">Costa Rica Wellness Immersion</p>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <span class="stars">★★★★★</span>
+                    </div>
+                    <p class="review-text">"I came to this retreat feeling burned out and left feeling completely rejuvenated. The daily yoga sessions, nutritious meals, and ocean views were exactly what I needed. I've made friendships that will last a lifetime."</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">DM</div>
+                        <div class="reviewer-info">
+                            <h4>David Martinez</h4>
+                            <p class="review-retreat-name">Italian Countryside Retreat</p>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <span class="stars">★★★★★</span>
+                    </div>
+                    <p class="review-text">"The perfect blend of relaxation and personal growth. Beautiful location, delicious organic food, and a program that balanced structure with free time. This retreat gave me tools I continue to use in my daily life months later."</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">LW</div>
+                        <div class="reviewer-info">
+                            <h4>Lisa Wang</h4>
+                            <p class="review-retreat-name">Himalayan Meditation Journey</p>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <span class="stars">★★★★★</span>
+                    </div>
+                    <p class="review-text">"A truly life-changing experience in the mountains. The guided meditations, breathwork sessions, and supportive community helped me overcome anxiety and find inner peace. I can't recommend this retreat enough!"</p>
+                </div>
+
+                <div class="review-card">
+                    <div class="review-header">
+                        <div class="reviewer-avatar">JB</div>
+                        <div class="reviewer-info">
+                            <h4>James Brown</h4>
+                            <p class="review-retreat-name">Bali Yoga & Meditation Retreat</p>
+                        </div>
+                    </div>
+                    <div class="review-rating">
+                        <span class="stars">★★★★★</span>
+                    </div>
+                    <p class="review-text">"From the moment I arrived, I felt welcomed and supported. The teachers were exceptional, the accommodations were comfortable, and the whole experience exceeded my expectations. This retreat was exactly what my soul needed."</p>
                 </div>
             </div>
         </div>
@@ -788,9 +1052,9 @@
                     <h4>Quick Links</h4>
                     <ul class="footer-nav">
                         <li><a href="#home">Home</a></li>
-                        <li><a href="#seekers">For Seekers</a></li>
-                        <li><a href="#providers">For Providers</a></li>
+                        <li><a href="#retreats">Browse Retreats</a></li>
                         <li><a href="#benefits">Benefits</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
                         <li><a href="#community">Community</a></li>
                     </ul>
                 </div>
@@ -916,6 +1180,213 @@
                 header.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
             }
         });
+
+        // ===========================
+        // Retreats Data
+        // ===========================
+        const retreatsData = [
+            {
+                id: 1,
+                name: "Bali Yoga & Meditation Retreat",
+                type: "yoga",
+                location: "bali",
+                locationName: "Ubud, Bali, Indonesia",
+                duration: "7 Days / 6 Nights",
+                price: 1299,
+                rating: 4.9,
+                reviewCount: 127,
+                image: "https://picsum.photos/seed/bali-yoga/800/500",
+                description: "Immerse yourself in daily yoga and meditation practices surrounded by Bali's lush rice terraces and spiritual energy."
+            },
+            {
+                id: 2,
+                name: "Thai Mindfulness Sanctuary",
+                type: "meditation",
+                location: "thailand",
+                locationName: "Chiang Mai, Thailand",
+                duration: "10 Days / 9 Nights",
+                price: 1599,
+                rating: 4.8,
+                reviewCount: 94,
+                image: "https://picsum.photos/seed/thai-meditation/800/500",
+                description: "Experience traditional Buddhist meditation in a peaceful mountain sanctuary with expert monks and meditation masters."
+            },
+            {
+                id: 3,
+                name: "Costa Rica Wellness Immersion",
+                type: "wellness",
+                location: "costa-rica",
+                locationName: "Santa Teresa, Costa Rica",
+                duration: "5 Days / 4 Nights",
+                price: 899,
+                rating: 4.9,
+                reviewCount: 156,
+                image: "https://picsum.photos/seed/costarica-wellness/800/500",
+                description: "Rejuvenate with sunrise yoga, organic meals, surf lessons, and spa treatments on pristine tropical beaches."
+            },
+            {
+                id: 4,
+                name: "Italian Countryside Retreat",
+                type: "wellness",
+                location: "italy",
+                locationName: "Tuscany, Italy",
+                duration: "6 Days / 5 Nights",
+                price: 1799,
+                rating: 4.7,
+                reviewCount: 88,
+                image: "https://picsum.photos/seed/italy-countryside/800/500",
+                description: "Restore balance with yoga, farm-to-table cuisine, wine tasting, and breathtaking views of rolling Tuscan hills."
+            },
+            {
+                id: 5,
+                name: "Himalayan Meditation Journey",
+                type: "meditation",
+                location: "india",
+                locationName: "Rishikesh, India",
+                duration: "14 Days / 13 Nights",
+                price: 1199,
+                rating: 5.0,
+                reviewCount: 203,
+                image: "https://picsum.photos/seed/himalaya-meditation/800/500",
+                description: "Deepen your meditation practice in the birthplace of yoga, with daily sessions by the sacred Ganges River."
+            },
+            {
+                id: 6,
+                name: "Mindful Living in Bali",
+                type: "mindfulness",
+                location: "bali",
+                locationName: "Canggu, Bali, Indonesia",
+                duration: "8 Days / 7 Nights",
+                price: 1450,
+                rating: 4.8,
+                reviewCount: 112,
+                image: "https://picsum.photos/seed/bali-mindful/800/500",
+                description: "Learn practical mindfulness techniques, enjoy healthy cuisine, and connect with a supportive community near the ocean."
+            },
+            {
+                id: 7,
+                name: "Thai Island Yoga Escape",
+                type: "yoga",
+                location: "thailand",
+                locationName: "Koh Samui, Thailand",
+                duration: "7 Days / 6 Nights",
+                price: 1150,
+                rating: 4.9,
+                reviewCount: 145,
+                image: "https://picsum.photos/seed/thailand-yoga/800/500",
+                description: "Practice yoga overlooking crystal-clear waters, enjoy Thai massage, and explore tropical paradise on this island retreat."
+            },
+            {
+                id: 8,
+                name: "Costa Rica Jungle Renewal",
+                type: "wellness",
+                location: "costa-rica",
+                locationName: "Manuel Antonio, Costa Rica",
+                duration: "9 Days / 8 Nights",
+                price: 1699,
+                rating: 4.8,
+                reviewCount: 76,
+                image: "https://picsum.photos/seed/costarica-jungle/800/500",
+                description: "Reconnect with nature through jungle hikes, waterfall meditation, wildlife encounters, and holistic healing therapies."
+            },
+            {
+                id: 9,
+                name: "Tuscan Mindfulness & Art",
+                type: "mindfulness",
+                location: "italy",
+                locationName: "Florence, Italy",
+                duration: "5 Days / 4 Nights",
+                price: 1599,
+                rating: 4.7,
+                reviewCount: 65,
+                image: "https://picsum.photos/seed/tuscany-mindful/800/500",
+                description: "Combine mindfulness practice with creative expression through painting, journaling, and exploring Renaissance art."
+            }
+        ];
+
+        // ===========================
+        // Render Retreats Function
+        // ===========================
+        function renderRetreats(retreats) {
+            const retreatsGrid = document.getElementById('retreatsGrid');
+            retreatsGrid.innerHTML = '';
+
+            if (retreats.length === 0) {
+                retreatsGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-gray); padding: 3rem;">No retreats found matching your criteria. Try adjusting your filters.</p>';
+                return;
+            }
+
+            retreats.forEach(retreat => {
+                const stars = '★'.repeat(Math.floor(retreat.rating)) + (retreat.rating % 1 >= 0.5 ? '½' : '');
+
+                const card = document.createElement('div');
+                card.className = 'retreat-card';
+                card.innerHTML = `
+                    <img src="${retreat.image}" alt="${retreat.name}" class="retreat-image">
+                    <div class="retreat-content">
+                        <span class="retreat-type">${retreat.type.charAt(0).toUpperCase() + retreat.type.slice(1)}</span>
+                        <h3>${retreat.name}</h3>
+                        <div class="retreat-location">
+                            <span>📍</span>
+                            <span>${retreat.locationName}</span>
+                        </div>
+                        <div class="retreat-rating">
+                            <span class="stars">${stars}</span>
+                            <span class="rating-text">${retreat.rating} (${retreat.reviewCount} reviews)</span>
+                        </div>
+                        <p class="retreat-description">${retreat.description}</p>
+                        <div class="retreat-details">
+                            <span class="retreat-duration">⏱️ ${retreat.duration}</span>
+                            <div class="retreat-price">$${retreat.price} <span>/ person</span></div>
+                        </div>
+                    </div>
+                    <div class="retreat-footer">
+                        <button class="btn btn-indigo btn-book" onclick="bookRetreat('${retreat.name}')">View Details</button>
+                    </div>
+                `;
+                retreatsGrid.appendChild(card);
+            });
+        }
+
+        // ===========================
+        // Filter Retreats Function
+        // ===========================
+        function filterRetreats() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const typeFilter = document.getElementById('typeFilter').value;
+            const locationFilter = document.getElementById('locationFilter').value;
+
+            const filtered = retreatsData.filter(retreat => {
+                const matchesSearch = retreat.name.toLowerCase().includes(searchTerm) ||
+                                     retreat.description.toLowerCase().includes(searchTerm) ||
+                                     retreat.locationName.toLowerCase().includes(searchTerm);
+                const matchesType = typeFilter === 'all' || retreat.type === typeFilter;
+                const matchesLocation = locationFilter === 'all' || retreat.location === locationFilter;
+
+                return matchesSearch && matchesType && matchesLocation;
+            });
+
+            renderRetreats(filtered);
+        }
+
+        // ===========================
+        // Book Retreat Function
+        // ===========================
+        function bookRetreat(retreatName) {
+            alert(`Thank you for your interest in "${retreatName}"! This feature is coming soon. You'll be able to view full details and book directly through our platform.`);
+        }
+
+        // ===========================
+        // Event Listeners for Filters
+        // ===========================
+        document.getElementById('searchInput').addEventListener('input', filterRetreats);
+        document.getElementById('typeFilter').addEventListener('change', filterRetreats);
+        document.getElementById('locationFilter').addEventListener('change', filterRetreats);
+
+        // ===========================
+        // Initial Render
+        // ===========================
+        renderRetreats(retreatsData);
     </script>
 </body>
 </html>
