@@ -1,0 +1,921 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Find your perfect retreat or list your retreat on retreatsbooking.com - The premier platform for wellness, yoga, meditation, and transformational retreats.">
+    <title>RetreatsBooking.com - Find Your Perfect Retreat</title>
+
+    <style>
+        /* ===========================
+           CSS Reset & Base Styles
+           =========================== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.6;
+            color: #1e293b;
+            background-color: #ffffff;
+        }
+
+        /* ===========================
+           Color Palette & Variables
+           =========================== */
+        :root {
+            --primary-indigo: #4f46e5;
+            --primary-indigo-dark: #4338ca;
+            --primary-indigo-light: #6366f1;
+            --background-light: #f8fafc;
+            --text-dark: #1e293b;
+            --text-gray: #64748b;
+            --white: #ffffff;
+            --border-gray: #e2e8f0;
+            --success-green: #10b981;
+        }
+
+        /* ===========================
+           Typography
+           =========================== */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 700;
+            line-height: 1.2;
+            color: var(--text-dark);
+        }
+
+        h1 {
+            font-size: 3rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+        }
+
+        h3 {
+            font-size: 1.875rem;
+        }
+
+        p {
+            color: var(--text-gray);
+            font-size: 1.125rem;
+        }
+
+        /* ===========================
+           Layout & Container
+           =========================== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        /* ===========================
+           Header & Navigation
+           =========================== */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-indigo);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .logo:hover {
+            color: var(--primary-indigo-dark);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .nav-menu li a:hover {
+            color: var(--primary-indigo);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        /* ===========================
+           Hero Section
+           =========================== */
+        .hero {
+            background: linear-gradient(135deg, rgba(79, 70, 229, 0.95) 0%, rgba(99, 102, 241, 0.9) 100%), url('https://picsum.photos/seed/retreat-hero/1920/1080') center/cover no-repeat;
+            color: var(--white);
+            text-align: center;
+            padding: 10rem 0 6rem;
+            margin-top: 4rem;
+        }
+
+        .hero h1 {
+            color: var(--white);
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 2.5rem;
+            animation: fadeInUp 0.8s ease 0.2s both;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.4s both;
+        }
+
+        /* ===========================
+           Buttons
+           =========================== */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--white);
+            color: var(--primary-indigo);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--background-light);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--white);
+            color: var(--primary-indigo);
+            transform: translateY(-2px);
+        }
+
+        .btn-indigo {
+            background-color: var(--primary-indigo);
+            color: var(--white);
+        }
+
+        .btn-indigo:hover {
+            background-color: var(--primary-indigo-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+        }
+
+        /* ===========================
+           Section Headers
+           =========================== */
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            color: var(--primary-indigo);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* ===========================
+           Feature Cards (For Seekers & Providers)
+           =========================== */
+        .features {
+            background-color: var(--background-light);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            background-color: var(--white);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary-indigo);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            margin: 0 auto 1.5rem;
+        }
+
+        .feature-card h3 {
+            color: var(--text-dark);
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .feature-card p {
+            color: var(--text-gray);
+            font-size: 1rem;
+        }
+
+        /* ===========================
+           Dual Target Sections
+           =========================== */
+        .seekers-section {
+            background-color: var(--white);
+        }
+
+        .providers-section {
+            background-color: var(--background-light);
+        }
+
+        .target-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .target-image {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .target-text h2 {
+            color: var(--primary-indigo);
+            margin-bottom: 1.5rem;
+        }
+
+        .target-text p {
+            margin-bottom: 2rem;
+        }
+
+        .feature-list {
+            list-style: none;
+            margin-bottom: 2rem;
+        }
+
+        .feature-list li {
+            padding: 0.75rem 0;
+            display: flex;
+            align-items: center;
+            color: var(--text-gray);
+            font-size: 1.125rem;
+        }
+
+        .feature-list li::before {
+            content: "✓";
+            color: var(--success-green);
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+
+        /* ===========================
+           Benefits Section (Power of Retreats)
+           =========================== */
+        .benefits-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: var(--white);
+        }
+
+        .benefits-section .section-header h2,
+        .benefits-section .section-header p {
+            color: var(--white);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 1rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .benefit-card:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-5px);
+        }
+
+        .benefit-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .benefit-card h3 {
+            color: var(--white);
+            margin-bottom: 0.75rem;
+            font-size: 1.5rem;
+        }
+
+        .benefit-card p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1rem;
+        }
+
+        /* ===========================
+           Community Sign-up Section
+           =========================== */
+        .community-section {
+            background-color: var(--background-light);
+            text-align: center;
+        }
+
+        .community-section h2 {
+            color: var(--primary-indigo);
+            margin-bottom: 1rem;
+        }
+
+        .community-section p {
+            font-size: 1.25rem;
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .signup-form {
+            max-width: 500px;
+            margin: 0 auto;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .signup-form input[type="email"] {
+            flex: 1;
+            min-width: 250px;
+            padding: 1rem 1.5rem;
+            font-size: 1rem;
+            border: 2px solid var(--border-gray);
+            border-radius: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .signup-form input[type="email"]:focus {
+            outline: none;
+            border-color: var(--primary-indigo);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+        }
+
+        .signup-form button {
+            padding: 1rem 2.5rem;
+        }
+
+        .form-message {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            display: none;
+        }
+
+        .form-message.success {
+            background-color: #d1fae5;
+            color: #065f46;
+            border: 1px solid #10b981;
+        }
+
+        .form-message.error {
+            background-color: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #ef4444;
+        }
+
+        /* ===========================
+           Footer
+           =========================== */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--white);
+            padding: 3rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: var(--white);
+            margin-bottom: 1rem;
+        }
+
+        .footer-nav {
+            list-style: none;
+        }
+
+        .footer-nav li {
+            margin-bottom: 0.75rem;
+        }
+
+        .footer-nav a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-nav a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* ===========================
+           Animations
+           =========================== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===========================
+           Responsive Design
+           =========================== */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.875rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.125rem;
+            }
+
+            .hero {
+                padding: 8rem 0 4rem;
+            }
+
+            section {
+                padding: 3rem 0;
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 4rem;
+                flex-direction: column;
+                background-color: var(--white);
+                width: 100%;
+                text-align: center;
+                transition: 0.3s;
+                box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+                padding: 2rem 0;
+                gap: 1rem;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .mobile-menu-toggle {
+                display: block;
+            }
+
+            .target-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .target-image {
+                height: 300px;
+            }
+
+            .signup-form {
+                flex-direction: column;
+            }
+
+            .signup-form input[type="email"] {
+                min-width: 100%;
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .feature-grid,
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            .btn {
+                padding: 0.875rem 2rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ===========================
+         Header & Navigation
+         =========================== -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="#home" class="logo">retreatsbooking.com</a>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                    ☰
+                </button>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#seekers">For Seekers</a></li>
+                    <li><a href="#providers">For Providers</a></li>
+                    <li><a href="#benefits">Benefits</a></li>
+                    <li><a href="#community">Community</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===========================
+         Hero Section
+         =========================== -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Find Your Perfect Retreat</h1>
+            <p class="hero-subtitle">Transform Your Life, One Retreat at a Time</p>
+            <div class="hero-cta">
+                <a href="#" class="btn btn-primary">Browse Retreats</a>
+                <a href="#" class="btn btn-secondary">List Your Retreat</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         For Retreat Seekers Section
+         =========================== -->
+    <section class="seekers-section" id="seekers">
+        <div class="container">
+            <div class="target-content">
+                <div class="target-text">
+                    <h2>For Retreat Seekers</h2>
+                    <p>Discover life-changing retreats tailored to your needs. Whether you're seeking wellness, personal growth, or simply a break from everyday life, we make it easy to find and book your perfect retreat experience.</p>
+                    <ul class="feature-list">
+                        <li>Search & Compare hundreds of verified retreats</li>
+                        <li>Read Verified Reviews from real participants</li>
+                        <li>Book Securely with our trusted payment system</li>
+                        <li>Filter by location, style, and price</li>
+                    </ul>
+                    <a href="#" class="btn btn-indigo">Start Exploring</a>
+                </div>
+                <div>
+                    <img src="https://picsum.photos/seed/yoga-seeker/800/600" alt="Person meditating during a peaceful retreat" class="target-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         For Retreat Providers Section
+         =========================== -->
+    <section class="providers-section" id="providers">
+        <div class="container">
+            <div class="target-content">
+                <div>
+                    <img src="https://picsum.photos/seed/retreat-provider/800/600" alt="Beautiful retreat venue with serene surroundings" class="target-image">
+                </div>
+                <div class="target-text">
+                    <h2>For Retreat Providers</h2>
+                    <p>Grow your retreat business by connecting with a targeted audience of retreat seekers. Our platform makes it simple to showcase your offerings and manage bookings efficiently.</p>
+                    <ul class="feature-list">
+                        <li>Reach a Targeted Audience actively searching for retreats</li>
+                        <li>Easy Booking Management with intuitive tools</li>
+                        <li>Grow Your Business with increased visibility</li>
+                        <li>No upfront fees - only pay when you book</li>
+                    </ul>
+                    <a href="#" class="btn btn-indigo">List Your Retreat</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         The Power of Retreats Section
+         =========================== -->
+    <section class="benefits-section" id="benefits">
+        <div class="container">
+            <div class="section-header">
+                <h2>The Power of Retreats</h2>
+                <p>Discover why millions of people worldwide are transforming their lives through retreat experiences</p>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <div class="benefit-icon">🧘</div>
+                    <h3>Reconnect with Yourself</h3>
+                    <p>Step away from daily distractions and rediscover your authentic self through mindful practices and reflection.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🤝</div>
+                    <h3>Join a Like-Minded Community</h3>
+                    <p>Connect with people who share your values and aspirations, building lasting friendships and support networks.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">🌱</div>
+                    <h3>Deepen Your Practice</h3>
+                    <p>Immerse yourself in intensive learning with expert guidance, accelerating your personal growth journey.</p>
+                </div>
+                <div class="benefit-card">
+                    <div class="benefit-icon">📵</div>
+                    <h3>Digital Detox</h3>
+                    <p>Unplug from technology and reconnect with nature, finding peace and clarity in the present moment.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         Community Sign-up Section
+         =========================== -->
+    <section class="community-section" id="community">
+        <div class="container">
+            <h2>Join Our Community & Never Miss a Deal</h2>
+            <p>Be the first to know about new retreats, exclusive offers, and wellness tips delivered straight to your inbox.</p>
+            <form class="signup-form" id="signupForm">
+                <input
+                    type="email"
+                    id="emailInput"
+                    placeholder="Enter your email address"
+                    required
+                    aria-label="Email address"
+                >
+                <button type="submit" class="btn btn-indigo">Get Updates & Offers</button>
+            </form>
+            <div class="form-message" id="formMessage"></div>
+        </div>
+    </section>
+
+    <!-- ===========================
+         Footer
+         =========================== -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>About RetreatsBooking</h4>
+                    <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.95rem;">
+                        Your trusted platform for discovering and booking transformational retreat experiences worldwide.
+                    </p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-nav">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#seekers">For Seekers</a></li>
+                        <li><a href="#providers">For Providers</a></li>
+                        <li><a href="#benefits">Benefits</a></li>
+                        <li><a href="#community">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect With Us</h4>
+                    <p style="color: rgba(255, 255, 255, 0.7); font-size: 0.95rem;">
+                        Stay connected for the latest retreat updates and wellness inspiration.
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 RetreatsBooking.com. All rights reserved. Transforming lives, one retreat at a time.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===========================
+         JavaScript for Interactivity
+         =========================== -->
+    <script>
+        // ===========================
+        // Mobile Menu Toggle
+        // ===========================
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const navMenu = document.getElementById('navMenu');
+
+        mobileMenuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Close mobile menu when clicking on a nav link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // ===========================
+        // Email Sign-up Form Validation
+        // ===========================
+        const signupForm = document.getElementById('signupForm');
+        const emailInput = document.getElementById('emailInput');
+        const formMessage = document.getElementById('formMessage');
+
+        signupForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+
+            const email = emailInput.value.trim();
+
+            // Basic validation
+            if (email === '') {
+                showMessage('Please enter your email address.', 'error');
+                return;
+            }
+
+            if (!email.includes('@')) {
+                showMessage('Please enter a valid email address.', 'error');
+                return;
+            }
+
+            // Email pattern validation
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(email)) {
+                showMessage('Please enter a valid email address.', 'error');
+                return;
+            }
+
+            // Success
+            showMessage('Thank you for joining our community! Check your inbox for exclusive offers.', 'success');
+            emailInput.value = '';
+
+            // Also show browser alert as requested
+            alert('Thank you for joining our community!');
+        });
+
+        function showMessage(message, type) {
+            formMessage.textContent = message;
+            formMessage.className = `form-message ${type}`;
+            formMessage.style.display = 'block';
+
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                formMessage.style.display = 'none';
+            }, 5000);
+        }
+
+        // ===========================
+        // Smooth Scrolling Enhancement
+        // ===========================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+
+                // Skip if href is just "#"
+                if (href === '#') {
+                    e.preventDefault();
+                    return;
+                }
+
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ===========================
+        // Header Shadow on Scroll
+        // ===========================
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 1px 3px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
