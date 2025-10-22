@@ -143,6 +143,84 @@
         }
 
         /* ===========================
+           Language Selector
+           =========================== */
+        .language-selector {
+            position: relative;
+            display: inline-block;
+        }
+
+        .language-btn {
+            background: none;
+            border: 2px solid var(--border-gray);
+            padding: 0.5rem 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .language-btn:hover {
+            border-color: var(--primary-indigo);
+            color: var(--primary-indigo);
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            margin-top: 0.5rem;
+            background-color: var(--white);
+            border: 2px solid var(--border-gray);
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            min-width: 200px;
+            display: none;
+            z-index: 100;
+        }
+
+        .language-dropdown.active {
+            display: block;
+        }
+
+        .language-option {
+            padding: 0.75rem 1rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 0.95rem;
+        }
+
+        .language-option:hover {
+            background-color: var(--background-light);
+            color: var(--primary-indigo);
+        }
+
+        .language-option.active {
+            background-color: var(--primary-indigo);
+            color: var(--white);
+        }
+
+        .language-option:first-child {
+            border-radius: 0.4rem 0.4rem 0 0;
+        }
+
+        .language-option:last-child {
+            border-radius: 0 0 0.4rem 0.4rem;
+        }
+
+        .flag-icon {
+            font-size: 1.25rem;
+        }
+
+        /* ===========================
            Hero Section
            =========================== */
         .hero {
@@ -931,6 +1009,23 @@
                 display: block;
             }
 
+            .language-selector {
+                width: 100%;
+                order: -1;
+                margin-bottom: 1rem;
+            }
+
+            .language-btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .language-dropdown {
+                left: 0;
+                right: 0;
+                min-width: auto;
+            }
+
             .search-filter-bar {
                 flex-direction: column;
             }
@@ -1054,11 +1149,40 @@
                     ☰
                 </button>
                 <ul class="nav-menu" id="navMenu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#retreats">Browse Retreats</a></li>
-                    <li><a href="#benefits">Benefits</a></li>
-                    <li><a href="#reviews">Reviews</a></li>
-                    <li><a href="#community">Community</a></li>
+                    <li><a href="#home" data-i18n="nav.home">Home</a></li>
+                    <li><a href="#retreats" data-i18n="nav.retreats">Browse Retreats</a></li>
+                    <li><a href="#benefits" data-i18n="nav.benefits">Benefits</a></li>
+                    <li><a href="#reviews" data-i18n="nav.reviews">Reviews</a></li>
+                    <li><a href="#community" data-i18n="nav.community">Community</a></li>
+                    <li class="language-selector">
+                        <button class="language-btn" id="languageBtn">
+                            <span class="flag-icon" id="currentFlag">🇬🇧</span>
+                            <span id="currentLang">EN</span>
+                            <span>▼</span>
+                        </button>
+                        <div class="language-dropdown" id="languageDropdown">
+                            <div class="language-option" data-lang="en">
+                                <span class="flag-icon">🇬🇧</span>
+                                <span>English</span>
+                            </div>
+                            <div class="language-option" data-lang="de">
+                                <span class="flag-icon">🇩🇪</span>
+                                <span>Deutsch</span>
+                            </div>
+                            <div class="language-option" data-lang="fr">
+                                <span class="flag-icon">🇫🇷</span>
+                                <span>Français</span>
+                            </div>
+                            <div class="language-option" data-lang="es">
+                                <span class="flag-icon">🇪🇸</span>
+                                <span>Español</span>
+                            </div>
+                            <div class="language-option" data-lang="it">
+                                <span class="flag-icon">🇮🇹</span>
+                                <span>Italiano</span>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -1069,10 +1193,10 @@
          =========================== -->
     <section class="hero" id="home">
         <div class="container">
-            <h1>Your Journey to Inner Peace Awaits</h1>
-            <p class="hero-subtitle">Escape the everyday. Reconnect with yourself. Discover transformational retreats in the world's most beautiful destinations.</p>
+            <h1 data-i18n="hero.title">Your Journey to Inner Peace Awaits</h1>
+            <p class="hero-subtitle" data-i18n="hero.subtitle">Escape the everyday. Reconnect with yourself. Discover transformational retreats in the world's most beautiful destinations.</p>
             <div class="hero-cta">
-                <a href="#retreats" class="btn btn-primary">Explore Retreats</a>
+                <a href="#retreats" class="btn btn-primary" data-i18n="hero.cta">Explore Retreats</a>
             </div>
         </div>
     </section>
@@ -1083,22 +1207,22 @@
     <section class="retreats-section" id="retreats">
         <div class="container">
             <div class="section-header">
-                <h2>Discover Your Next Retreat</h2>
-                <p>Explore handpicked retreats from around the world. Find the perfect experience for your wellness journey.</p>
+                <h2 data-i18n="retreats.title">Discover Your Next Retreat</h2>
+                <p data-i18n="retreats.subtitle">Explore handpicked retreats from around the world. Find the perfect experience for your wellness journey.</p>
             </div>
 
             <!-- Search and Filter Bar -->
             <div class="search-filter-bar">
-                <input type="text" id="searchInput" class="search-input" placeholder="Search retreats...">
+                <input type="text" id="searchInput" class="search-input" data-i18n-placeholder="retreats.searchPlaceholder" placeholder="Search retreats...">
                 <select id="typeFilter" class="filter-select">
-                    <option value="all">All Types</option>
-                    <option value="yoga">Yoga</option>
-                    <option value="meditation">Meditation</option>
-                    <option value="wellness">Wellness</option>
-                    <option value="mindfulness">Mindfulness</option>
+                    <option value="all" data-i18n="retreats.allTypes">All Types</option>
+                    <option value="yoga" data-i18n="retreats.yoga">Yoga</option>
+                    <option value="meditation" data-i18n="retreats.meditation">Meditation</option>
+                    <option value="wellness" data-i18n="retreats.wellness">Wellness</option>
+                    <option value="mindfulness" data-i18n="retreats.mindfulness">Mindfulness</option>
                 </select>
                 <select id="locationFilter" class="filter-select">
-                    <option value="all">All Locations</option>
+                    <option value="all" data-i18n="retreats.allLocations">All Locations</option>
                     <option value="bali">Bali, Indonesia</option>
                     <option value="costa-rica">Costa Rica</option>
                     <option value="thailand">Thailand</option>
@@ -1563,6 +1687,247 @@
          =========================== -->
     <script>
         // ===========================
+        // Multi-Language Translations
+        // ===========================
+        const translations = {
+            en: {
+                nav: {
+                    home: "Home",
+                    retreats: "Browse Retreats",
+                    benefits: "Benefits",
+                    reviews: "Reviews",
+                    community: "Community"
+                },
+                hero: {
+                    title: "Your Journey to Inner Peace Awaits",
+                    subtitle: "Escape the everyday. Reconnect with yourself. Discover transformational retreats in the world's most beautiful destinations.",
+                    cta: "Explore Retreats"
+                },
+                retreats: {
+                    title: "Discover Your Next Retreat",
+                    subtitle: "Explore handpicked retreats from around the world. Find the perfect experience for your wellness journey.",
+                    searchPlaceholder: "Search retreats...",
+                    allTypes: "All Types",
+                    allLocations: "All Locations",
+                    yoga: "Yoga",
+                    meditation: "Meditation",
+                    wellness: "Wellness",
+                    mindfulness: "Mindfulness",
+                    viewDetails: "View Details",
+                    perPerson: "/ person",
+                    reviews: "reviews"
+                }
+            },
+            de: {
+                nav: {
+                    home: "Startseite",
+                    retreats: "Retreats durchsuchen",
+                    benefits: "Vorteile",
+                    reviews: "Bewertungen",
+                    community: "Community"
+                },
+                hero: {
+                    title: "Ihre Reise zum inneren Frieden wartet",
+                    subtitle: "Entfliehen Sie dem Alltag. Verbinden Sie sich mit sich selbst. Entdecken Sie transformative Retreats in den schönsten Destinationen der Welt.",
+                    cta: "Retreats entdecken"
+                },
+                retreats: {
+                    title: "Entdecken Sie Ihr nächstes Retreat",
+                    subtitle: "Erkunden Sie handverlesene Retreats aus der ganzen Welt. Finden Sie das perfekte Erlebnis für Ihre Wellness-Reise.",
+                    searchPlaceholder: "Retreats suchen...",
+                    allTypes: "Alle Arten",
+                    allLocations: "Alle Standorte",
+                    yoga: "Yoga",
+                    meditation: "Meditation",
+                    wellness: "Wellness",
+                    mindfulness: "Achtsamkeit",
+                    viewDetails: "Details ansehen",
+                    perPerson: "/ Person",
+                    reviews: "Bewertungen"
+                }
+            },
+            fr: {
+                nav: {
+                    home: "Accueil",
+                    retreats: "Parcourir les retraites",
+                    benefits: "Avantages",
+                    reviews: "Avis",
+                    community: "Communauté"
+                },
+                hero: {
+                    title: "Votre voyage vers la paix intérieure vous attend",
+                    subtitle: "Échappez au quotidien. Reconnectez-vous avec vous-même. Découvrez des retraites transformatrices dans les plus belles destinations du monde.",
+                    cta: "Explorer les retraites"
+                },
+                retreats: {
+                    title: "Découvrez votre prochaine retraite",
+                    subtitle: "Explorez des retraites soigneusement sélectionnées du monde entier. Trouvez l'expérience parfaite pour votre parcours bien-être.",
+                    searchPlaceholder: "Rechercher des retraites...",
+                    allTypes: "Tous les types",
+                    allLocations: "Tous les lieux",
+                    yoga: "Yoga",
+                    meditation: "Méditation",
+                    wellness: "Bien-être",
+                    mindfulness: "Pleine conscience",
+                    viewDetails: "Voir les détails",
+                    perPerson: "/ personne",
+                    reviews: "avis"
+                }
+            },
+            es: {
+                nav: {
+                    home: "Inicio",
+                    retreats: "Explorar retiros",
+                    benefits: "Beneficios",
+                    reviews: "Opiniones",
+                    community: "Comunidad"
+                },
+                hero: {
+                    title: "Tu viaje hacia la paz interior te espera",
+                    subtitle: "Escapa de lo cotidiano. Reconecta contigo mismo. Descubre retiros transformadores en los destinos más hermosos del mundo.",
+                    cta: "Explorar retiros"
+                },
+                retreats: {
+                    title: "Descubre tu próximo retiro",
+                    subtitle: "Explora retiros seleccionados de todo el mundo. Encuentra la experiencia perfecta para tu viaje de bienestar.",
+                    searchPlaceholder: "Buscar retiros...",
+                    allTypes: "Todos los tipos",
+                    allLocations: "Todas las ubicaciones",
+                    yoga: "Yoga",
+                    meditation: "Meditación",
+                    wellness: "Bienestar",
+                    mindfulness: "Atención plena",
+                    viewDetails: "Ver detalles",
+                    perPerson: "/ persona",
+                    reviews: "opiniones"
+                }
+            },
+            it: {
+                nav: {
+                    home: "Home",
+                    retreats: "Esplora ritiri",
+                    benefits: "Vantaggi",
+                    reviews: "Recensioni",
+                    community: "Community"
+                },
+                hero: {
+                    title: "Il tuo viaggio verso la pace interiore ti aspetta",
+                    subtitle: "Fuggi dalla quotidianità. Riconnettiti con te stesso. Scopri ritiri trasformativi nelle destinazioni più belle del mondo.",
+                    cta: "Esplora i ritiri"
+                },
+                retreats: {
+                    title: "Scopri il tuo prossimo ritiro",
+                    subtitle: "Esplora ritiri selezionati da tutto il mondo. Trova l'esperienza perfetta per il tuo percorso di benessere.",
+                    searchPlaceholder: "Cerca ritiri...",
+                    allTypes: "Tutti i tipi",
+                    allLocations: "Tutte le località",
+                    yoga: "Yoga",
+                    meditation: "Meditazione",
+                    wellness: "Benessere",
+                    mindfulness: "Consapevolezza",
+                    viewDetails: "Vedi dettagli",
+                    perPerson: "/ persona",
+                    reviews: "recensioni"
+                }
+            }
+        };
+
+        // Language configuration
+        const languageConfig = {
+            en: { flag: "🇬🇧", code: "EN" },
+            de: { flag: "🇩🇪", code: "DE" },
+            fr: { flag: "🇫🇷", code: "FR" },
+            es: { flag: "🇪🇸", code: "ES" },
+            it: { flag: "🇮🇹", code: "IT" }
+        };
+
+        let currentLanguage = 'en';
+
+        // ===========================
+        // Detect Browser Language
+        // ===========================
+        function detectBrowserLanguage() {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang && translations[savedLang]) {
+                return savedLang;
+            }
+
+            const browserLang = navigator.language || navigator.userLanguage;
+            const langCode = browserLang.split('-')[0].toLowerCase();
+
+            return translations[langCode] ? langCode : 'en';
+        }
+
+        // ===========================
+        // Switch Language
+        // ===========================
+        function switchLanguage(lang) {
+            if (!translations[lang]) return;
+
+            currentLanguage = lang;
+            localStorage.setItem('preferredLanguage', lang);
+
+            // Update language selector
+            document.getElementById('currentFlag').textContent = languageConfig[lang].flag;
+            document.getElementById('currentLang').textContent = languageConfig[lang].code;
+
+            // Update all elements with data-i18n
+            document.querySelectorAll('[data-i18n]').forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                const translation = getNestedTranslation(translations[lang], key);
+                if (translation) {
+                    element.textContent = translation;
+                }
+            });
+
+            // Update placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(element => {
+                const key = element.getAttribute('data-i18n-placeholder');
+                const translation = getNestedTranslation(translations[lang], key);
+                if (translation) {
+                    element.placeholder = translation;
+                }
+            });
+
+            // Update active language option
+            document.querySelectorAll('.language-option').forEach(option => {
+                option.classList.remove('active');
+                if (option.getAttribute('data-lang') === lang) {
+                    option.classList.add('active');
+                }
+            });
+
+            // Re-render retreats with translated text
+            renderRetreats(retreatsData);
+        }
+
+        // Helper function to get nested translation
+        function getNestedTranslation(obj, path) {
+            return path.split('.').reduce((current, key) => current?.[key], obj);
+        }
+
+        // ===========================
+        // Language Selector Events
+        // ===========================
+        document.getElementById('languageBtn').addEventListener('click', (e) => {
+            e.stopPropagation();
+            document.getElementById('languageDropdown').classList.toggle('active');
+        });
+
+        document.querySelectorAll('.language-option').forEach(option => {
+            option.addEventListener('click', () => {
+                const lang = option.getAttribute('data-lang');
+                switchLanguage(lang);
+                document.getElementById('languageDropdown').classList.remove('active');
+            });
+        });
+
+        // Close language dropdown when clicking outside
+        document.addEventListener('click', () => {
+            document.getElementById('languageDropdown').classList.remove('active');
+        });
+
+        // ===========================
         // Mobile Menu Toggle
         // ===========================
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
@@ -1798,6 +2163,8 @@
             const retreatsGrid = document.getElementById('retreatsGrid');
             retreatsGrid.innerHTML = '';
 
+            const t = translations[currentLanguage].retreats;
+
             if (retreats.length === 0) {
                 retreatsGrid.innerHTML = '<p style="grid-column: 1/-1; text-align: center; color: var(--text-gray); padding: 3rem;">No retreats found matching your criteria. Try adjusting your filters.</p>';
                 return;
@@ -1805,13 +2172,14 @@
 
             retreats.forEach(retreat => {
                 const stars = '★'.repeat(Math.floor(retreat.rating)) + (retreat.rating % 1 >= 0.5 ? '½' : '');
+                const translatedType = t[retreat.type] || retreat.type.charAt(0).toUpperCase() + retreat.type.slice(1);
 
                 const card = document.createElement('div');
                 card.className = 'retreat-card';
                 card.innerHTML = `
                     <img src="${retreat.image}" alt="${retreat.name}" class="retreat-image">
                     <div class="retreat-content">
-                        <span class="retreat-type">${retreat.type.charAt(0).toUpperCase() + retreat.type.slice(1)}</span>
+                        <span class="retreat-type">${translatedType}</span>
                         <h3>${retreat.name}</h3>
                         <div class="retreat-location">
                             <span>📍</span>
@@ -1819,16 +2187,16 @@
                         </div>
                         <div class="retreat-rating">
                             <span class="stars">${stars}</span>
-                            <span class="rating-text">${retreat.rating} (${retreat.reviewCount} reviews)</span>
+                            <span class="rating-text">${retreat.rating} (${retreat.reviewCount} ${t.reviews})</span>
                         </div>
                         <p class="retreat-description">${retreat.description}</p>
                         <div class="retreat-details">
                             <span class="retreat-duration">⏱️ ${retreat.duration}</span>
-                            <div class="retreat-price">$${retreat.price} <span>/ person</span></div>
+                            <div class="retreat-price">$${retreat.price} <span>${t.perPerson}</span></div>
                         </div>
                     </div>
                     <div class="retreat-footer">
-                        <button class="btn btn-indigo btn-book" onclick="bookRetreat('${retreat.name}')">View Details</button>
+                        <button class="btn btn-indigo btn-book" onclick="bookRetreat('${retreat.name}')">${t.viewDetails}</button>
                     </div>
                 `;
                 retreatsGrid.appendChild(card);
@@ -1869,6 +2237,12 @@
         document.getElementById('searchInput').addEventListener('input', filterRetreats);
         document.getElementById('typeFilter').addEventListener('change', filterRetreats);
         document.getElementById('locationFilter').addEventListener('change', filterRetreats);
+
+        // ===========================
+        // Initialize Language on Page Load
+        // ===========================
+        const detectedLang = detectBrowserLanguage();
+        switchLanguage(detectedLang);
 
         // ===========================
         // Initial Render
